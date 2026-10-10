@@ -1,0 +1,66 @@
+[project]
+name = "vyapar"
+version = "0.1.0"
+requires-python = ">=3.14"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "prek>=0.5.5",
+    "ruff>=0.17.0",
+]
+
+[tool.ruff]
+target-version = "py314"
+line-length = 88
+extend-exclude = ["**/migrations/*.py"]
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.ruff.lint]
+preview = true
+explicit-preview-rules = true
+select = [
+    "ALL",
+    "DOC201", # return not documented
+    "DOC202", # extraneous return documented
+    "DOC402", # yield not documented
+    "DOC403", # extraneous yield documented
+    "DOC501", # raised exception not documented
+    "DOC502", # extraneous exception documented
+]
+ignore = [
+    "COM812",  # conflicts with formatter
+    "ISC001",  # conflicts with formatter
+    "D100",    # module docstrings: noise on models.py, views.py, apps.py etc.
+    "D104",    # package docstrings: every app has empty __init__.py
+    "D105",    # magic methods (__str__) are self-explanatory
+    "D106",    # Meta classes
+    "D107",    # __init__ documented on the class instead
+    "RUF012",  # Django class attrs (fields, list_display, Meta) aren't ClassVar
+    "ARG002",  # Django method overrides must keep signatures (request, *args)
+    "FIX002",  # TODOs allowed, but TD rules still enforce author + format
+    "CPY001",  # no copyright headers
+]
+
+[tool.ruff.lint.per-file-ignores]
+"**/tests/**" = ["S101", "PLR2004", "D", "ANN201", "ARG", "SLF001"]
+"**/test_*.py" = ["S101", "PLR2004", "D", "ANN201", "ARG", "SLF001"]
+"**/conftest.py" = ["D", "ANN201"]
+"**/views.py" = ["ARG001"]
+"**/settings/*.py" = ["F403", "F405"]
+"**/management/commands/*.py" = ["D101", "D102"]
+"manage.py" = ["INP001"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.flake8-unused-arguments]
+ignore-variadic-names = true
+
+[tool.ruff.lint.isort]
+section-order = ["future", "standard-library", "django", "third-party", "first-party", "local-folder"]
+
+[tool.ruff.lint.isort.sections]
+django = ["django"]
