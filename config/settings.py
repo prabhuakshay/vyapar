@@ -108,10 +108,7 @@ TEMPLATES = [
 # =============================================================================
 
 DATABASES = {
-    "default": env.db_url(
-        "DATABASE_URL",
-        default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
-    ),
+    "default": env.db_url("DATABASE_URL"),
 }
 DATABASES["default"]["CONN_MAX_AGE"] = env.int("CONN_MAX_AGE", default=60)
 DATABASES["default"]["CONN_HEALTH_CHECKS"] = env.bool(
