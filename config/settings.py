@@ -61,7 +61,9 @@ THIRD_PARTY_APPS = [
     "simple_history",
 ]
 
-LOCAL_APPS = []
+LOCAL_APPS = [
+    "accounts",
+]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
@@ -129,6 +131,10 @@ CACHES = {
 # =============================================================================
 # AUTHENTICATION
 # =============================================================================
+
+AUTH_USER_MODEL = "accounts.User"
+
+AUTHENTICATION_BACKENDS = ["accounts.backends.UsernameOrEmailBackend"]
 
 AUTH_PASSWORD_VALIDATORS = [
     {"NAME": f"django.contrib.auth.password_validation.{validator}"}

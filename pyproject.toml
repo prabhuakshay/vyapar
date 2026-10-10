@@ -52,8 +52,8 @@ ignore = [
 ]
 
 [tool.ruff.lint.per-file-ignores]
-"**/tests/**" = ["S101", "PLR2004", "D", "ANN201", "ARG", "SLF001"]
-"**/test_*.py" = ["S101", "PLR2004", "D", "ANN201", "ARG", "SLF001"]
+"**/tests/**" = ["S101", "S106", "PLR2004", "PT027", "D", "ANN201", "ARG", "SLF001"]
+"**/test_*.py" = ["S101", "S106", "PLR2004", "PT027", "D", "ANN201", "ARG", "SLF001"]
 "**/conftest.py" = ["D", "ANN201"]
 "**/views.py" = ["ARG001"]
 "**/settings/*.py" = ["F403", "F405"]
