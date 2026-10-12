@@ -11,7 +11,7 @@
 FROM ghcr.io/astral-sh/uv:0.12@sha256:3af4716e991d6956a41e573eab705d0ee08500cd829ed30293eb8472f372c65a AS uv
 
 
-FROM node:24-slim@sha256:d6aa754f16b3197301076f047b5def2f02ea1dbbc2ca920407d46d7ec7f87b20 AS tailwind
+FROM node:26-slim@sha256:193fe51b64e77981119c98c2002c9e32a70e2f006fb4d25068ce0558998917f0 AS tailwind
 
 ARG DOCKER_UID=1000
 ARG DOCKER_GID=1000
@@ -57,7 +57,7 @@ ENTRYPOINT ["dev-entrypoint"]
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
 
 
-FROM node:24-slim@sha256:d6aa754f16b3197301076f047b5def2f02ea1dbbc2ca920407d46d7ec7f87b20 AS assets
+FROM node:26-slim@sha256:193fe51b64e77981119c98c2002c9e32a70e2f006fb4d25068ce0558998917f0 AS assets
 
 WORKDIR /app
 
