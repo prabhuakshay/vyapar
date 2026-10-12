@@ -1,0 +1,29 @@
+# Host-built or generated.
+.venv/
+node_modules/
+static/
+staticfiles/
+media/
+*.log
+
+# Secrets: containers read config from the environment at run time.
+.env
+.env.*
+.envrc
+
+.git/
+.github/
+.claude/
+.ruff_cache/
+**/__pycache__/
+**/*.py[cod]
+
+compose*.yaml
+Dockerfile
+*.md
+.gitignore
+.dockerignore
+.pre-commit-config.yaml
+
+# Tests never run in the image; dev bind-mounts the tree instead.
+**/tests/

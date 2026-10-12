@@ -10,3 +10,7 @@ __pycache__/
 # Django
 staticfiles/
 media/
+
+# Frontend: built by the tailwind container.
+node_modules/
+static/

@@ -1,0 +1,10 @@
+/* Tailwind source; `npm run build`/`watch` compiles it to static/css/app.css. Edit this, not the output. */
+
+/*
+ * source(none) disables auto-detection so only the @source paths below are scanned for classes.
+ * A new app goes here and in the Dockerfile assets stage, or its pages ship unstyled.
+ */
+@import "tailwindcss" source(none);
+
+@source "../../templates";
+@source "../../accounts";

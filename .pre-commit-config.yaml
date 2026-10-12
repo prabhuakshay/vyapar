@@ -41,7 +41,7 @@ repos:
     rev: "1.9.0"
     hooks:
       - id: djade
-        args: [--target-version, "6.1"]
+        args: [--target-version, "6.0"]
 
   - repo: https://github.com/compilerla/conventional-pre-commit
     rev: v4.4.0

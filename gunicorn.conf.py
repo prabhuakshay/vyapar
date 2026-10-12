@@ -26,6 +26,11 @@ max_requests_jitter = env.int("GUNICORN_MAX_REQUESTS_JITTER", default=100)
 
 forwarded_allow_ips = env.str("GUNICORN_FORWARDED_ALLOW_IPS", default="127.0.0.1,::1")
 
+# Its default location is under $HOME, which is read-only in the container.
+control_socket_disable = True
+# The heartbeat file on disk can stall under I/O load and get workers killed.
+worker_tmp_dir = "/dev/shm"  # noqa: S108
+
 accesslog = "-"
 errorlog = "-"
 loglevel = env.str("GUNICORN_LOG_LEVEL", default="info")
